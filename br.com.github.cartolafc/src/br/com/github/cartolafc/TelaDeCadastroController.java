@@ -5,7 +5,11 @@ package br.com.github.cartolafc;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +42,25 @@ public class TelaDeCadastroController implements Initializable {
         u.setNome(textoNome.getText());
         u.setEmail(textoEmail.getText());
         u.setSenha(textoSenha.getText());
+        
+        //Conectar com o Banco de Dados para guardar as informações
+        Conexao c = new Conexao();
+        c.getConexao(); //conexão feita
+        
+        String insertTableSQL = "INSERT INTO usuario_java"
+                + "(nome, email, senha) VALUES"
+                + "(?,?,?)";
+        try {   
+            PreparedStatement ps = c.prepareStatement(insertTableSQL);
+            ps.setString(1, u.getNome());
+            ps.setString(2, u.getEmail());
+            ps.setString(3, u.getSenha());
+            ps.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        c.desconecta();
         
         //Volta para a tela inicial
         Parent root;
