@@ -46,7 +46,7 @@ public class TelaDeCadastroController implements Initializable {
         //Conectar com o Banco de Dados para guardar as informações
         Conexao c = new Conexao();
         c.getConexao(); //conexão feita
-        
+        /**
         String insertTableSQL = "INSERT INTO usuario_java"
                 + "(nome, email, senha) VALUES"
                 + "(?,?,?)";
@@ -56,12 +56,11 @@ public class TelaDeCadastroController implements Initializable {
             ps.setString(2, u.getEmail());
             ps.setString(3, u.getSenha());
             ps.executeUpdate();
-            
         } catch (SQLException ex) {
             Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
         c.desconecta();
-        
+        */
         //Volta para a tela inicial
         Parent root;
         try {
