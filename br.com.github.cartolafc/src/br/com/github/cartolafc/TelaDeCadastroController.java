@@ -5,7 +5,10 @@ package br.com.github.cartolafc;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -44,14 +47,27 @@ public class TelaDeCadastroController implements Initializable {
         u.setSenha(textoSenha.getText());
         
         //Conectar com o Banco de Dados para guardar as informações
-        Conexao c = new Conexao();
-        c.getConexao(); //conexão feita
-        /**
+        Connection connection = null;
+        try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+                connection = DriverManager.getConnection("jdbc:oracle:thin:@oracle.canoas.ifrs.edu.br:1521:XE","ads_bd16","ads_bd16");       
+        }catch (ClassNotFoundException ex){
+            System.out.println("ops" + ex);
+        }catch (SQLException ex){
+            System.out.println("ops 2" + ex);
+        }
+        if(connection != null){
+            System.out.println("You have a new power!");
+        }else{
+            System.out.println("Noooooooooooo!");
+        }
+        
+        //Insere os dados
         String insertTableSQL = "INSERT INTO usuario_java"
                 + "(nome, email, senha) VALUES"
                 + "(?,?,?)";
         try {   
-            PreparedStatement ps = c.prepareStatement(insertTableSQL);
+            PreparedStatement ps = connection.prepareStatement(insertTableSQL);
             ps.setString(1, u.getNome());
             ps.setString(2, u.getEmail());
             ps.setString(3, u.getSenha());
@@ -59,8 +75,14 @@ public class TelaDeCadastroController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        c.desconecta();
-        */
+        
+        //Desconecta do Banco de dados
+        try{
+            connection.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        
         //Volta para a tela inicial
         Parent root;
         try {
