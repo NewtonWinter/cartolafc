@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.github.cartolafc.TelaInicialController">
-    
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.github.cartolafc.TelaInicialController">
+   <children>
+      <Label layoutX="70.0" layoutY="69.0" text="usuário">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="172.0" text="senha">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usuario" layoutX="188.0" layoutY="80.0" />
+      <TextField fx:id="senha" layoutX="188.0" layoutY="188.0" />
+      <Button fx:id="btEntrar" layoutX="413.0" layoutY="188.0" mnemonicParsing="false" text="entrar" />
+      <Button fx:id="btNaoPossuiCadastro" layoutX="86.0" layoutY="287.0" mnemonicParsing="false" onAction="#irParaTelaDeCadastro" text="Não possui cadastro?" />
+   </children>
 </AnchorPane>

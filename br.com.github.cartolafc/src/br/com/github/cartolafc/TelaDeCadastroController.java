@@ -1,5 +1,5 @@
 /*
- * Tela inicial do sistema
+ * Tela para cadastrar novos usuários
  */
 package br.com.github.cartolafc;
 
@@ -17,31 +17,36 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * FXML Tela inicial
+ * FXML TelaDeCadastro
  *
  * @author Newton Winter
  */
-public class TelaInicialController implements Initializable {
+public class TelaDeCadastroController implements Initializable {
 
     @FXML
-    private TextField usuario;
+    private TextField textoNome;
     @FXML
-    private TextField senha;
+    private TextField textoSenha;
     @FXML
-    private Button btEntrar;
+    private TextField textoEmail;
     @FXML
-    private Button btNaoPossuiCadastro;
-    
+    private Button botaoCadastrar;
+
     @FXML
-    private void irParaTelaDeCadastro(ActionEvent event) {
+    private void cadastrar(ActionEvent ev) {
+        Usuario u = new Usuario();
+        u.setNome(textoNome.getText());
+        u.setEmail(textoEmail.getText());
+        u.setSenha(textoSenha.getText());
         
+        //Volta para a tela inicial
         Parent root;
         try {
 
             //modo 2
             Stage stage = ControleDeFilmes.stage;
 
-            root = FXMLLoader.load(getClass().getResource("TelaDeCadastro.fxml"));
+            root = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
             Scene scene = new Scene(root);
 
             stage.setScene(scene);
@@ -50,6 +55,8 @@ public class TelaInicialController implements Initializable {
             System.out.println("Senhor programador verifique o nome do arquivo FXML");
         }
     }
+    
+    
     
     /**
      * Initializes the controller class.
