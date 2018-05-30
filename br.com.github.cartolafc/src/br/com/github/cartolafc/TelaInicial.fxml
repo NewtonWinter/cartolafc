@@ -20,7 +20,12 @@
       </Label>
       <TextField fx:id="usuario" layoutX="188.0" layoutY="80.0" />
       <TextField fx:id="senha" layoutX="188.0" layoutY="188.0" />
-      <Button fx:id="btEntrar" layoutX="413.0" layoutY="188.0" mnemonicParsing="false" text="entrar" />
+      <Button fx:id="btEntrar" layoutX="413.0" layoutY="188.0" mnemonicParsing="false" onAction="#entrar" prefHeight="25.0" prefWidth="104.0" text="entrar" />
       <Button fx:id="btNaoPossuiCadastro" layoutX="86.0" layoutY="287.0" mnemonicParsing="false" onAction="#irParaTelaDeCadastro" text="Não possui cadastro?" />
+      <Label fx:id="labelDadosIncorretos" layoutX="112.0" layoutY="37.0" prefHeight="17.0" prefWidth="172.0" text="Dados Incorretos" textFill="#cd0c0c" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
