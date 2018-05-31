@@ -7,10 +7,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,7 +42,9 @@ public class TelaInicialController implements Initializable {
     @FXML
     private Button btNaoPossuiCadastro;
     @FXML
-    private Label labelDadosIncorretos;
+    private Label labelUsuarioInexistente;
+    @FXML
+    private Label labelDadosCorretos;
     
     @FXML
     private void irParaTelaDeCadastro(ActionEvent event) {
@@ -60,8 +66,12 @@ public class TelaInicialController implements Initializable {
     }
     
     @FXML
-    private void entrar(ActionEvent event1){
-        //labelDadosIncorretos.setVisible(true);
+    private void entrar(ActionEvent event1) throws SQLException{
+        
+        String validarUsuario = null;
+        String testName = null;
+        Usuario us = new Usuario();
+        us.setNome(usuario.getText());
         
         //Fazendo conexao com o Banco de Dados
         Connection connection = null;
@@ -79,21 +89,46 @@ public class TelaInicialController implements Initializable {
             System.out.println("Noooooooooooo!");
         }
         
-        //Selecionando um dados da tabela
-        String selectSQL = "SELECT ? FROM usuario_java where nome = ";
+        //arraylist de instancias
+        ArrayList<String> listaDeNomes = new ArrayList();
         
-        Statement st;
-        try {
-            st = connection.createStatement();
-            ResultSet rs = st.executeQuery(selectSQL);
-            while(rs.next()) {
-                Usuario p = new Usuario();
-                p.setNome(rs.getString(selectSQL));
-                p.setSenha(rs.getString(selectSQL));
+        //Selecionando dados do Banco de Dados
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM usuario_java");
+        ResultSet resultado = ps.executeQuery();
+        
+        while(resultado.next()){
+            listaDeNomes.add(resultado.getString("nome"));//guardo os nomes existentes em uma lista
+            System.out.println(listaDeNomes);
+        }
+        
+        //Verificar se o nome informado existe, verificando a lista de nomes
+        if(listaDeNomes.contains(us.getNome())){
+        }else{
+            labelUsuarioInexistente.setVisible(true);
+        }
+        
+        PreparedStatement ps1 = connection.prepareStatement("SELECT * FROM usuario_java WHERE nome = ?");
+            ps1.setString(1, us.getNome());
+            ResultSet resultado1 = ps1.executeQuery();
+        
+            while(resultado1.next()){
+                testName = resultado1.getString("senha");
+                System.out.println(testName);
             }
-        }catch (SQLException e) {
+            
+        if(senha.getText().equals(testName)){
+            labelDadosCorretos.setVisible(true);
+        }else{
+            System.out.println("Senha incorreta");
+        }
+            
+        //Fechando a conexão com o Banco de Dados
+        try{
+            connection.close();
+        }catch (SQLException e){
             e.printStackTrace();
         }
+    }    
     
     /**
      * Initializes the controller class.

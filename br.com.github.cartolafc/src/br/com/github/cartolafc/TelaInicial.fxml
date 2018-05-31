@@ -8,6 +8,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.github.cartolafc.TelaInicialController">
    <children>
+      <Label fx:id="labelDadosCorretos" layoutX="319.0" layoutY="287.0" text="dados corretos" textFill="#20c31d" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
       <Label layoutX="70.0" layoutY="69.0" text="usuário">
          <font>
             <Font size="32.0" />
@@ -22,7 +27,7 @@
       <TextField fx:id="senha" layoutX="188.0" layoutY="188.0" />
       <Button fx:id="btEntrar" layoutX="413.0" layoutY="188.0" mnemonicParsing="false" onAction="#entrar" prefHeight="25.0" prefWidth="104.0" text="entrar" />
       <Button fx:id="btNaoPossuiCadastro" layoutX="86.0" layoutY="287.0" mnemonicParsing="false" onAction="#irParaTelaDeCadastro" text="Não possui cadastro?" />
-      <Label fx:id="labelDadosIncorretos" layoutX="112.0" layoutY="37.0" prefHeight="17.0" prefWidth="172.0" text="Dados Incorretos" textFill="#cd0c0c" visible="false">
+      <Label fx:id="labelUsuarioInexistente" layoutX="373.0" layoutY="82.0" prefHeight="17.0" prefWidth="172.0" text="usuário inexistente" textFill="#cd0c0c" visible="false">
          <font>
             <Font size="15.0" />
          </font>

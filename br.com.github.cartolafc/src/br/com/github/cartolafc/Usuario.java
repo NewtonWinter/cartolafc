@@ -19,8 +19,8 @@ public class Usuario {
      *
      * @return boolean - se senha e nome informados são iguais aos contidos no banco de dados 
     */
-    public boolean verificaSenha(String nomeInformado, String senhaInformada ){
-        if (this.nome.equals(nomeInformado) && (this.senha.equals(senhaInformada))) {
+    public boolean verificaNome(String nomeInformado, String senhaInformada ){
+        if (nomeInformado.equals(nomeInformado)){
             return true;
         } else {
             return false;
