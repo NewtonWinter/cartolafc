@@ -45,10 +45,12 @@ public class TelaInicialController implements Initializable {
     private Label labelUsuarioInexistente;
     @FXML
     private Label labelDadosCorretos;
-    
+    @FXML
+    private Label labelSenhaIncorreta;
+
     @FXML
     private void irParaTelaDeCadastro(ActionEvent event) {
-        
+
         Parent root;
         try {
 
@@ -64,78 +66,92 @@ public class TelaInicialController implements Initializable {
             System.out.println("Senhor programador verifique o nome do arquivo FXML");
         }
     }
-    
+
+    //@FXML
+    private void irParaTelaDeAbertura() {
+        Parent root;
+        try {
+            //modo 2
+            Stage stage = ControleDeFilmes.stage;
+            root = FXMLLoader.load(getClass().getResource("TelaDeAbertura.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (NullPointerException | IOException ex) {
+            System.out.println("Senhor programador verifique o nome do arquivo FXML");
+        }
+    }
+
     @FXML
-    private void entrar(ActionEvent event1) throws SQLException{
-        
+    private void entrar(ActionEvent event1) throws SQLException {
+
         String validarUsuario = null;
         String testName = null;
         Usuario us = new Usuario();
         us.setNome(usuario.getText());
-        
+
         //Fazendo conexao com o Banco de Dados
         Connection connection = null;
-        try{
+        try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-                connection = DriverManager.getConnection("jdbc:oracle:thin:@oracle.canoas.ifrs.edu.br:1521:XE","ads_bd16","ads_bd16");       
-        }catch (ClassNotFoundException ex){
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@oracle.canoas.ifrs.edu.br:1521:XE", "ads_bd16", "ads_bd16");
+        } catch (ClassNotFoundException ex) {
             System.out.println("ops" + ex);
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             System.out.println("ops 2" + ex);
         }
-        if(connection != null){
+        if (connection != null) {
             System.out.println("You have a new power!");
-        }else{
+        } else {
             System.out.println("Noooooooooooo!");
         }
-        
+
         //arraylist de instancias
         ArrayList<String> listaDeNomes = new ArrayList();
-        
+
         //Selecionando dados do Banco de Dados
         PreparedStatement ps = connection.prepareStatement("SELECT * FROM usuario_java");
         ResultSet resultado = ps.executeQuery();
-        
-        while(resultado.next()){
+
+        while (resultado.next()) {
             listaDeNomes.add(resultado.getString("nome"));//guardo os nomes existentes em uma lista
-            System.out.println(listaDeNomes);
+            //System.out.println(listaDeNomes);
         }
-        
+
         //Verificar se o nome informado existe, verificando a lista de nomes
-        if(listaDeNomes.contains(us.getNome())){
-        }else{
+        if (listaDeNomes.contains(us.getNome())) {
+        } else {
             labelUsuarioInexistente.setVisible(true);
         }
-        
+
         PreparedStatement ps1 = connection.prepareStatement("SELECT * FROM usuario_java WHERE nome = ?");
-            ps1.setString(1, us.getNome());
-            ResultSet resultado1 = ps1.executeQuery();
-        
-            while(resultado1.next()){
-                testName = resultado1.getString("senha");
-                System.out.println(testName);
-            }
-            
-        if(senha.getText().equals(testName)){
-            labelDadosCorretos.setVisible(true);
-        }else{
-            System.out.println("Senha incorreta");
+        ps1.setString(1, us.getNome());
+        ResultSet resultado1 = ps1.executeQuery();
+
+        while (resultado1.next()) {
+            testName = resultado1.getString("senha");
+            //System.out.println(testName);
         }
-            
+
+        if (senha.getText().equals(testName)) {
+            irParaTelaDeAbertura();
+        } else {
+            labelSenhaIncorreta.setVisible(true);
+        }
+
         //Fechando a conexão com o Banco de Dados
-        try{
+        try {
             connection.close();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-    }    
-    
+    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }
