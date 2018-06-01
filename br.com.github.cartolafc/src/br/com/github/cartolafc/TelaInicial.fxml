@@ -34,7 +34,7 @@
       </Label>
       <Label fx:id="labelSenhaIncorreta" layoutX="373.0" layoutY="187.0" text="senha incorreta" textFill="#d30d0d" visible="false">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font>
       </Label>
    </children>
