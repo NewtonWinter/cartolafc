@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="br.com.github.cartolafc.TelaCadastrarFilmesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.github.cartolafc.TelaCadastrarFilmesController">
    <children>
       <Label layoutX="28.0" layoutY="20.0" prefHeight="39.0" prefWidth="75.0" text="Filme">
          <font>
@@ -31,16 +30,30 @@
       <CheckBox fx:id="emprestadoSim" layoutX="115.0" layoutY="355.0" mnemonicParsing="false" text="Sim" />
       <CheckBox fx:id="emprestadoNao" layoutX="188.0" layoutY="355.0" mnemonicParsing="false" text="Não" />
       <TextArea fx:id="textoSinopseFilme" layoutX="88.0" layoutY="259.0" prefHeight="84.0" prefWidth="169.0" />
-      <Button fx:id="buttonMusica" layoutX="285.0" layoutY="84.0" mnemonicParsing="false" text="Música" />
-      <Button fx:id="buttonPremiacoes" layoutX="289.0" layoutY="343.0" mnemonicParsing="false" text="Premiações" />
-      <Button fx:id="buttonOndeFoiExibido" layoutX="285.0" layoutY="27.0" mnemonicParsing="false" text="Onde foi exibido" />
-      <Button fx:id="buttonSerie" layoutX="289.0" layoutY="212.0" mnemonicParsing="false" text="Série" />
-      <Button fx:id="buttonLivro" layoutX="442.0" layoutY="84.0" mnemonicParsing="false" text="Livro" />
-      <Button fx:id="buttonHistoriaReal" layoutX="442.0" layoutY="147.0" mnemonicParsing="false" text="História real" />
-      <Button fx:id="buttonEstudio" layoutX="286.0" layoutY="281.0" mnemonicParsing="false" text="Estúdio" />
-      <Button fx:id="buttonDubladora" layoutX="285.0" layoutY="147.0" mnemonicParsing="false" text="Dubladora" />
-      <Button fx:id="buttonDiretor" layoutX="439.0" layoutY="27.0" mnemonicParsing="false" text="Diretor" />
-      <Button fx:id="buttonAtores" layoutX="441.0" layoutY="285.0" mnemonicParsing="false" text="Atores" />
-      <Button fx:id="buttonAvaliacao" layoutX="439.0" layoutY="212.0" mnemonicParsing="false" text="Avaliação" />
+      <Button fx:id="buttonMusica" layoutX="397.0" layoutY="301.0" mnemonicParsing="false" text="Música" />
+      <Button fx:id="buttonPremiacoes" layoutX="278.0" layoutY="301.0" mnemonicParsing="false" text="Premiações" />
+      <Button fx:id="buttonSerie" layoutX="280.0" layoutY="262.0" mnemonicParsing="false" text="Série" />
+      <Button fx:id="buttonLivro" layoutX="397.0" layoutY="264.0" mnemonicParsing="false" text="Livro" />
+      <Button fx:id="buttonHistoriaReal" layoutX="397.0" layoutY="343.0" mnemonicParsing="false" text="História real" />
+      <Button fx:id="buttonEstudio" layoutX="503.0" layoutY="264.0" mnemonicParsing="false" text="Estúdio" />
+      <Button fx:id="buttonDubladora" layoutX="279.0" layoutY="225.0" mnemonicParsing="false" text="Dubladora" />
+      <Button fx:id="buttonDiretor" layoutX="397.0" layoutY="225.0" mnemonicParsing="false" text="Diretor" />
+      <Button fx:id="buttonAtores" layoutX="503.0" layoutY="225.0" mnemonicParsing="false" text="Atores" />
+      <Button fx:id="buttonAvaliacao" layoutX="282.0" layoutY="343.0" mnemonicParsing="false" text="Avaliação" />
+      <Button fx:id="buttonCadastrarUmFilme" layoutX="503.0" layoutY="304.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="81.0" text="Cadastrar" textFill="#13cd1f">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <CheckBox fx:id="feitoParaTv" layoutX="120.0" layoutY="31.0" mnemonicParsing="false" onAction="#filmeParaTv" text="Feito para Tv" />
+      <CheckBox fx:id="feitoParaCinema" layoutX="221.0" layoutY="31.0" mnemonicParsing="false" onAction="#filmeParaCinema" text="Feito para o cinema" />
+      <Label fx:id="labelEmissoraTvQueEstreou" layoutX="271.0" layoutY="82.0" text="Emissora de Tv onde estreou" />
+      <Label fx:id="labelDataEstreia" layoutX="270.0" layoutY="119.0" text="Data de estréia" />
+      <TextField fx:id="textoEmissoraTvQueEstreou" layoutX="437.0" layoutY="78.0" />
+      <TextField fx:id="textoDataEstreia" layoutX="361.0" layoutY="115.0" prefHeight="25.0" prefWidth="226.0" />
+      <Label fx:id="labelPaisDeEstreia" layoutX="270.0" layoutY="155.0" text="Paś onde estreou" />
+      <Label fx:id="labelFaturamento" layoutX="272.0" layoutY="191.0" text="Faturamento (R$)" />
+      <TextField fx:id="textoPaisDeEstreia" layoutX="370.0" layoutY="151.0" prefHeight="25.0" prefWidth="216.0" />
+      <TextField fx:id="textoFaturamento" layoutX="372.0" layoutY="187.0" prefHeight="25.0" prefWidth="216.0" />
    </children>
 </AnchorPane>

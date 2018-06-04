@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -42,8 +43,6 @@ public class TelaCadastrarFilmesController implements Initializable {
     @FXML
     private Button buttonPremiacoes;
     @FXML
-    private Button buttonOndeFoiExibido;
-    @FXML
     private Button buttonSerie;
     @FXML
     private Button buttonLivro;
@@ -59,15 +58,58 @@ public class TelaCadastrarFilmesController implements Initializable {
     private Button buttonAtores;
     @FXML
     private Button buttonAvaliacao;
+    @FXML
+    private Button buttonCadastrarUmFilme;
+    @FXML
+    private CheckBox feitoParaTv;
+    @FXML
+    private CheckBox feitoParaCinema;
+    @FXML
+    private TextField textoEmissoraTvQueEstreou;
+    @FXML
+    private TextField textoDataEstreia;
+    @FXML
+    private TextField textoPaisDeEstreia;
+    @FXML
+    private TextField textoFaturamento;
+    @FXML
+    private Label labelEmissoraTvQueEstreou;
+    @FXML
+    private Label labelDataEstreia;
+    @FXML
+    private Label labelPaisDeEstreia;
+    @FXML
+    private Label labelFaturamento;
 
+    @FXML
+    private void filmeParaTv(){
+        textoEmissoraTvQueEstreou.setVisible(true);
+        textoDataEstreia.setVisible(true);
+        labelEmissoraTvQueEstreou.setVisible(true);
+        labelDataEstreia.setVisible(true);
+    }
     
+    @FXML
+    private void filmeParaCinema(){
+        textoPaisDeEstreia.setVisible(true);
+        textoFaturamento.setVisible(true);
+        labelPaisDeEstreia.setVisible(true);
+        labelFaturamento.setVisible(true);
+    }
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        textoEmissoraTvQueEstreou.setVisible(false);
+        textoDataEstreia.setVisible(false);
+        textoPaisDeEstreia.setVisible(false);
+        textoFaturamento.setVisible(false);
+        labelEmissoraTvQueEstreou.setVisible(false);
+        labelDataEstreia.setVisible(false);
+        labelPaisDeEstreia.setVisible(false);
+        labelFaturamento.setVisible(false);
     }    
     
 }
