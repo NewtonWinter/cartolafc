@@ -39,6 +39,7 @@ public class ControleDeFilmes extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
     
 }

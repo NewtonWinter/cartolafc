@@ -6,16 +6,20 @@
 package br.com.github.cartolafc;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author USER
  */
 public class ConexaoBancoDados {
+
     private String usuario = "ads_bd16";
     private String senha = "ads_bd16";
     private String servidor = "oracle.canoas.ifrs.edu.br";
     private int porta = 1521;
-    
+
     private Connection conexao = null;
 
     public String getUsuario() {
@@ -57,4 +61,5 @@ public class ConexaoBancoDados {
     public void setConexao(Connection conexao) {
         this.conexao = conexao;
     }
+
 }

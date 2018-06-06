@@ -33,7 +33,7 @@ import javafx.stage.Stage;
  * @author Newton Winter
  */
 public class TelaInicialController implements Initializable {
-
+    
     @FXML
     private TextField usuario;
     @FXML
@@ -48,7 +48,8 @@ public class TelaInicialController implements Initializable {
     private Label labelDadosCorretos;
     @FXML
     private Label labelSenhaIncorreta;
-
+    
+    
     @FXML
     private void irParaTelaDeCadastro(ActionEvent event) {
 
@@ -67,7 +68,7 @@ public class TelaInicialController implements Initializable {
             System.out.println("Senhor programador verifique o nome do arquivo FXML");
         }
     }
-
+    
     //@FXML
     private void irParaTelaDeAbertura() {
         Parent root;
@@ -89,7 +90,7 @@ public class TelaInicialController implements Initializable {
         String testName = null;
         Usuario us = new Usuario();
         us.setNome(usuario.getText());
-
+        
         //Fazendo conexao com o Banco de Dados
         Connection connection = null;
         try {
@@ -146,7 +147,7 @@ public class TelaInicialController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    
     /**
      * Initializes the controller class.
      */

@@ -40,7 +40,7 @@
       <Button fx:id="buttonDiretor" layoutX="397.0" layoutY="225.0" mnemonicParsing="false" text="Diretor" />
       <Button fx:id="buttonAtores" layoutX="503.0" layoutY="225.0" mnemonicParsing="false" text="Atores" />
       <Button fx:id="buttonAvaliacao" layoutX="282.0" layoutY="343.0" mnemonicParsing="false" text="Avaliação" />
-      <Button fx:id="buttonCadastrarUmFilme" layoutX="503.0" layoutY="304.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="81.0" text="Cadastrar" textFill="#13cd1f">
+      <Button fx:id="buttonCadastrarUmFilme" layoutX="503.0" layoutY="304.0" mnemonicParsing="false" onAction="#cadastrarUmFilme" prefHeight="64.0" prefWidth="81.0" text="Cadastrar" textFill="#13cd1f">
          <font>
             <Font size="14.0" />
          </font>

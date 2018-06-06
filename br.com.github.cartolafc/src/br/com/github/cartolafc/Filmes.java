@@ -15,7 +15,16 @@ public class Filmes {
     private int anoDeLancamento;
     private String sinopse;
     private String pais;
-    private boolean estaNoAcervo;
+    private String estaNoAcervo;
+    private Ator ator;
+
+    public Ator getAtor() {
+        return ator;
+    }
+
+    public void setAtor(Ator ator) {
+        this.ator = ator;
+    }
 
     public String getNomeFilme() {
         return nomeFilme;
@@ -57,11 +66,13 @@ public class Filmes {
         this.pais = pais;
     }
 
-    public boolean isEstaNoAcervo() {
+    public String getEstaNoAcervo() {
         return estaNoAcervo;
     }
 
-    public void setEstaNoAcervo(boolean estaNoAcervo) {
+    public void setEstaNoAcervo(String estaNoAcervo) {
         this.estaNoAcervo = estaNoAcervo;
     }
+
+    
 }
