@@ -10,13 +10,13 @@ package br.com.github.cartolafc;
  * @author user
  */
 public class Filmes {
-    private String nomeFilme;
-    private int tempoDeDuracao;
-    private int anoDeLancamento;
-    private String sinopse;
-    private String pais;
-    private String estaNoAcervo;
-    private Ator ator;
+    protected String nomeFilme;
+    protected int tempoDeDuracao;
+    protected int anoDeLancamento;
+    protected String sinopse;
+    protected String pais;
+    protected String estaNoAcervo;
+    protected Ator ator;
 
     public Ator getAtor() {
         return ator;

@@ -114,6 +114,15 @@ public class TelaCadastrarFilmesController implements Initializable {
         f.setSinopse(textoSinopseFilme.getText());
         f.setEstaNoAcervo(textoEstaNoAcervoFilmes.getText());
         
+        FilmeParaCinema fpc = new FilmeParaCinema();
+        fpc.setPaisesExibidosEstreia(textoPaisDeEstreia.getText());
+        fpc.setFaturamento(textoFaturamento.getText());
+        
+        FilmeParaTv fpt = new FilmeParaTv();
+        fpt.setDataExibicao(textoDataEstreia.getText());
+        fpt.setEmissorasEstreia(textoEmissoraTvQueEstreou.getText());
+                
+        
         //Conectar com o Banco de Dados para guardar as informações
         Connection connection = null;
         try{
@@ -127,6 +136,7 @@ public class TelaCadastrarFilmesController implements Initializable {
         if(connection != null){
             System.out.println("You have a new power!");
         }else{
+     
             System.out.println("Noooooooooooo!");
         }
         
@@ -158,6 +168,32 @@ public class TelaCadastrarFilmesController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }*/
+        
+        String insertTableSQL2 = "INSERT INTO paracinema_java"
+                + "(nomefilmes, paisesexibidosestreia, faturamento) VALUES"
+                + "(?,?,?)";
+        try {   
+            PreparedStatement ps = connection.prepareStatement(insertTableSQL);
+            ps.setString(1, f.getNomeFilme());
+            ps.setString(2, fpc.getPaisesExibidosEstreia());
+            ps.setString(3, fpc.getFaturamento());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String insertTableSQL3 = "INSERT INTO paratv_java"
+                + "(nomefilmes, dataexibicao, emissorasestreia) VALUES"
+                + "(?,?,?)";
+        try {   
+            PreparedStatement ps = connection.prepareStatement(insertTableSQL);
+            ps.setString(1, f.getNomeFilme());
+            ps.setString(2, fpt.getDataExibicao());
+            ps.setString(3, fpt.getEmissorasEstreia());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         //Desconecta do Banco de dados
         try{
