@@ -1,7 +1,7 @@
 /*
  * Classe que contém os dados do usuário
  */
-package br.com.github.cartolafc;
+package br.com.github.model;
 
 /**
  *

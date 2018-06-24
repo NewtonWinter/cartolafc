@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.github.cartolafc;
+package br.com.github.model;
+
+import br.com.github.model.Filmes;
 
 /**
  *

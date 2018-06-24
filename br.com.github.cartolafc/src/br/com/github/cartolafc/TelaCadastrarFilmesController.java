@@ -5,6 +5,9 @@
  */
 package br.com.github.cartolafc;
 
+import br.com.github.model.FilmeParaCinema;
+import br.com.github.model.FilmeParaTv;
+import br.com.github.model.Filmes;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;

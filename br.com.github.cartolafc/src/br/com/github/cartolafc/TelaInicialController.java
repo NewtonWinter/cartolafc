@@ -3,6 +3,7 @@
  */
 package br.com.github.cartolafc;
 
+import br.com.github.model.Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
