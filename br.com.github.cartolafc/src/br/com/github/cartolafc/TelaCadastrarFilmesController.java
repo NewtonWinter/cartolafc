@@ -8,6 +8,7 @@ package br.com.github.cartolafc;
 import br.com.github.model.FilmeParaCinema;
 import br.com.github.model.FilmeParaTv;
 import br.com.github.model.Filmes;
+import br.com.github.model.Usuario;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -109,6 +110,8 @@ public class TelaCadastrarFilmesController implements Initializable {
     
     @FXML
     private void cadastrarUmFilme(ActionEvent ev1){
+        Usuario us = ControleDeFilmes.getUsuario();
+        
         Filmes f = new Filmes();
         f.setNomeFilme(textoNomeFilme.getText());
         f.setTempoDeDuracao(Integer.parseInt(textoDuracaoFilme.getText()));//convertendo String em texto
@@ -160,19 +163,19 @@ public class TelaCadastrarFilmesController implements Initializable {
             Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        /*String insertTableSQL2 = "INSERT INTO usuario_filmes_java"
+        String insertTableSQL2 = "INSERT INTO usuario_filmes_java"
                 + "(nomeusuario, nomefilmes) VALUES"
                 + "(?,?)";
         try {   
             PreparedStatement ps = connection.prepareStatement(insertTableSQL2);
-            ps.setString(1, );
+            ps.setString(1, us.getNome());
             ps.setString(2, f.getNomeFilme());
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
         
-        String insertTableSQL2 = "INSERT INTO paracinema_java"
+ /*       String insertTableSQL2 = "INSERT INTO paracinema_java"
                 + "(nomefilmes, paisesexibidosestreia, faturamento) VALUES"
                 + "(?,?,?)";
         try {   
@@ -196,7 +199,7 @@ public class TelaCadastrarFilmesController implements Initializable {
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } */
         
         //Desconecta do Banco de dados
         try{

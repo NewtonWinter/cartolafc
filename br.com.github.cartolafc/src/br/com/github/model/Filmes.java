@@ -19,7 +19,16 @@ public class Filmes {
     protected String pais;
     protected String estaNoAcervo;
     protected Ator ator;
+    protected FilmesDoUsuario filmesDoUsuario;
 
+    public FilmesDoUsuario getFilmesDoUsuario() {
+        return filmesDoUsuario;
+    }
+
+    public void setFilmesDoUsuario(FilmesDoUsuario filmesDoUsuario) {
+        this.filmesDoUsuario = filmesDoUsuario;
+    }
+    
     public Ator getAtor() {
         return ator;
     }

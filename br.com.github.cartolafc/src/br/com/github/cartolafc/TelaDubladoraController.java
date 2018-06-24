@@ -47,21 +47,23 @@ public class TelaDubladoraController implements Initializable {
     
     private ObservableList<String> observableListListaDubladores;
     
+    Dubladora dub = new Dubladora();
+    
     @FXML
-    public void carregarListListaDubladores(String nomeDublador){
+    public void carregarListListaDubladores(){
         //List<String> nomesDubladores = new ArrayList<String>();
-        textoDublador.setText(nomeDublador);
-        nomesDubladores.add(nomeDublador);
+        dub.setDublador(textoDublador.getText());
+        nomesDubladores.add(dub.getDublador());
         
         observableListListaDubladores = FXCollections.observableArrayList(nomesDubladores);
-        ListListaDubladores.setId(nomeDublador);
+        ListListaDubladores.setId(dub.getDublador());
     }
     
     @FXML
     private void cadastrarDubladora(){
-        Dubladora dub = new Dubladora();
+        //Dubladora dub = new Dubladora();
         dub.setNomeEmpresa(textoNomeEmpresa.getText());
-        carregarListListaDubladores(dub.getDublador());
+        carregarListListaDubladores();
         
         //Conectar com o Banco de Dados para guardar as informações
         Connection connection = null;
@@ -80,19 +82,15 @@ public class TelaDubladoraController implements Initializable {
             System.out.println("Noooooooooooo!");
         }
     }
-    
+    /*
     //Insere os dados
-        String insertTableSQL = "INSERT INTO filmes_java"
-                + "(nome, lancamento, duracao, pais, sinopse, estanoacervo) VALUES"
-                + "(?,?,?,?,?,?)";
+        String insertTableSQL = "INSERT INTO dubladora_java"
+                + "(nomeEmpresa, dublador) VALUES"
+                + "(?,?)";
         try {   
             PreparedStatement ps = connection.prepareStatement(insertTableSQL);
             ps.setString(1, f.getNomeFilme());
-            ps.setInt(2, f.getAnoDeLancamento());
-            ps.setInt(3, f.getTempoDeDuracao());
             ps.setString(4, f.getPais());
-            ps.setString(5, f.getSinopse());
-            ps.setString(6, f.getEstaNoAcervo());
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
@@ -102,9 +100,9 @@ public class TelaDubladoraController implements Initializable {
         try{
             connection.close();
         }catch (SQLException e){
-            e.printStackTrace();
+          e.printStackTrace();
         }
-    
+        */
     /**
      * Initializes the controller class.
      */

@@ -5,6 +5,7 @@
  */
 package br.com.github.cartolafc;
 
+import br.com.github.model.Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,6 +33,7 @@ public class TelaDeAberturaController implements Initializable {
     @FXML
     private Button buttonListarFilmes;
     
+
     @FXML
     private void irParaTelaCadastrarFilmes(ActionEvent event2) {
         Parent root;
@@ -39,19 +41,22 @@ public class TelaDeAberturaController implements Initializable {
             //modo 2
             Stage stage = ControleDeFilmes.stage;
             root = FXMLLoader.load(getClass().getResource("TelaCadastrarFilmes.fxml"));
+            //root.
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (NullPointerException | IOException ex) {
             System.out.println("Senhor programador verifique o nome do arquivo FXML");
         }
     }
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+
+
 }

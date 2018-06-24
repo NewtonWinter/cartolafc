@@ -5,6 +5,7 @@
  */
 package br.com.github.cartolafc;
 
+import br.com.github.model.Usuario;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -17,21 +18,32 @@ import javafx.stage.Stage;
  * @author Aluno
  */
 public class ControleDeFilmes extends Application {
-    
+
     //instancia singleton ou StaticSubstitution
     public static Stage stage;
-    
+    private static  Usuario usuario;
+
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.show();
-        
+
         //Setando o Singleton la de cima
         ControleDeFilmes.stage = stage;
+    }
+
+
+    public static Usuario getUsuario() {
+        return usuario;
+    }
+
+    public static void setUsuario(Usuario usuario) {
+        ControleDeFilmes.usuario = usuario;
     }
 
     /**
@@ -39,7 +51,7 @@ public class ControleDeFilmes extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        
+
     }
-    
+
 }

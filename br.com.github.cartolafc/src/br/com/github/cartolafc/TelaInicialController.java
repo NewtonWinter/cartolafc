@@ -71,7 +71,7 @@ public class TelaInicialController implements Initializable {
     }
     
     //@FXML
-    private void irParaTelaDeAbertura() {
+    private void irParaTelaDeAbertura(Usuario us) {
         Parent root;
         try {
             //modo 2
@@ -79,6 +79,8 @@ public class TelaInicialController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("TelaDeAbertura.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            
+            ControleDeFilmes.setUsuario(us);
         } catch (NullPointerException | IOException ex) {
             System.out.println("Senhor programador verifique o nome do arquivo FXML");
         }
@@ -136,7 +138,7 @@ public class TelaInicialController implements Initializable {
         }
 
         if (senha.getText().equals(testName)) {
-            irParaTelaDeAbertura();
+            irParaTelaDeAbertura( us );
         } else {
             labelSenhaIncorreta.setVisible(true);
         }

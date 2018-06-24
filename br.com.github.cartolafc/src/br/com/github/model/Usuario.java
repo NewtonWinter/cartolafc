@@ -3,6 +3,8 @@
  */
 package br.com.github.model;
 
+import java.util.List;
+
 /**
  *
  * @author Newton Winter
