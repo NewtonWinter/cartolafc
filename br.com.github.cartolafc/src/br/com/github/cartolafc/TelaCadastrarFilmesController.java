@@ -113,6 +113,34 @@ public class TelaCadastrarFilmesController implements Initializable {
         labelFaturamento.setVisible(true);
     }
 
+    @FXML
+    public void irParaTelaCadastrarDubladora() {
+        Parent root;
+        try {
+            //modo 2
+            Stage stage = ControleDeFilmes.stage;
+            root = FXMLLoader.load(getClass().getResource("TelaDubladora.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (NullPointerException | IOException ex) {
+            System.out.println("Senhor programador verifique o nome do arquivo FXML");
+        }
+    }
+    
+    @FXML
+    public void irParaTelaCadastrarDiretor() {
+        Parent root;
+        try {
+            //modo 2
+            Stage stage = ControleDeFilmes.stage;
+            root = FXMLLoader.load(getClass().getResource("Diretor.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (NullPointerException | IOException ex) {
+            System.out.println("Senhor programador verifique o nome do arquivo FXML");
+        }
+    }
+    
     public void voltarParaTelaDeAbertura() {
 
         Parent root;
@@ -168,37 +196,37 @@ public class TelaCadastrarFilmesController implements Initializable {
             System.out.println("Noooooooooooo!");
         }
 
-        //Insere os dados
-        String insertTableSQL = "INSERT INTO filmes_java"
-                + "(nome, lancamento, duracao, pais, sinopse, estanoacervo) VALUES"
-                + "(?,?,?,?,?,?)";
-        try {
-            PreparedStatement ps = connection.prepareStatement(insertTableSQL);
-            ps.setString(1, f.getNomeFilme());
-            ps.setInt(2, f.getAnoDeLancamento());
-            ps.setInt(3, f.getTempoDeDuracao());
-            ps.setString(4, f.getPais());
-            ps.setString(5, f.getSinopse());
-            ps.setString(6, f.getEstaNoAcervo());
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        //Insere os dados
+//        String insertTableSQL = "INSERT INTO filmes_java"
+//                + "(nome, lancamento, duracao, pais, sinopse, estanoacervo) VALUES"
+//                + "(?,?,?,?,?,?)";
+//        try {
+//            PreparedStatement ps = connection.prepareStatement(insertTableSQL);
+//            ps.setString(1, f.getNomeFilme());
+//            ps.setInt(2, f.getAnoDeLancamento());
+//            ps.setInt(3, f.getTempoDeDuracao());
+//            ps.setString(4, f.getPais());
+//            ps.setString(5, f.getSinopse());
+//            ps.setString(6, f.getEstaNoAcervo());
+//            ps.executeUpdate();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        String insertTableSQL2 = "INSERT INTO usuario_filmes_java"
+//                + "(nomeusuario, nomefilmes) VALUES"
+//                + "(?,?)";
+//        try {
+//            PreparedStatement ps = connection.prepareStatement(insertTableSQL2);
+//            ps.setString(1, us.getNome());
+//            ps.setString(2, f.getNomeFilme());
+//            ps.executeUpdate();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
-        String insertTableSQL2 = "INSERT INTO usuario_filmes_java"
-                + "(nomeusuario, nomefilmes) VALUES"
-                + "(?,?)";
-        try {
-            PreparedStatement ps = connection.prepareStatement(insertTableSQL2);
-            ps.setString(1, us.getNome());
-            ps.setString(2, f.getNomeFilme());
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-//        String insertTableSQL3 = "INSERT INTO paracinema_java"
-//                + "(nomefilmes, paisesexibidosestreia, faturamento) VALUES"
+//        String insertTableSQL3 = "INSERT INTO filmes_java"
+//                + "(nome, paisesexibidosestreia, faturamento) VALUES"
 //                + "(?,?,?)";
 //        try {
 //            PreparedStatement ps = connection.prepareStatement(insertTableSQL);
@@ -210,8 +238,8 @@ public class TelaCadastrarFilmesController implements Initializable {
 //            Logger.getLogger(TelaDeCadastroController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //
-//        String insertTableSQL4 = "INSERT INTO paratv_java"
-//                + "(nomefilmes, dataexibicao, emissorasestreia) VALUES"
+//        String insertTableSQL4 = "INSERT INTO filmes_java"
+//                + "(nome, dataexibicao, emissorasestreia) VALUES"
 //                + "(?,?,?)";
 //        try {
 //            PreparedStatement ps = connection.prepareStatement(insertTableSQL);

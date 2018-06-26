@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="br.com.github.cartolafc.DiretorController">
+   <children>
+      <Label layoutX="192.0" layoutY="44.0" text="Diretor">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="116.0" text="Nome">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textoNomeDiretor" layoutX="126.0" layoutY="117.0" />
+      <Button fx:id="btCadastrarDiretor" layoutX="435.0" layoutY="336.0" mnemonicParsing="false" onAction="#voltarParaTelaCadastrarFilmes" text="cadastrar" />
+   </children>
+</AnchorPane>
