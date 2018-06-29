@@ -1,5 +1,5 @@
-/*
- * Classe que contém os dados do usuário
+/**
+ * Classe que contém os dados do usuário do sistema
  */
 package br.com.github.model;
 

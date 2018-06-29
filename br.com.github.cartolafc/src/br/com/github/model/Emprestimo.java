@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Caso o filme esteja gravado em uma mídia física e tenha sido emprestada,
+ * guardam-se os dados de quem fez o empréstimo
  */
 package br.com.github.model;
 

@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Classe para guardar o nome do concurso e a categoria, caso o filme tenha rtecebido
+ * premiação em algum festival
  */
 package br.com.github.model;
 
