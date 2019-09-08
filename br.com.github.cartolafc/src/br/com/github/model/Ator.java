@@ -13,6 +13,7 @@ public class Ator {
     private String dataNascimento;
     private String nacionalidade;
     private String observacoes;
+    private int idade;
 
     public String getNomeAtor() {
         return nomeAtor;
